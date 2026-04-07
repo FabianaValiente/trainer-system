@@ -10,7 +10,7 @@ public class TrainerSystemApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TrainerSystemApplication.class, args);
-        System.out.println("HOLIS ESTA ES LA ZONA HORARIA" + TimeZone.getDefault());
+        System.out.println("ESTA ES LA ZONA HORARIA" + TimeZone.getDefault());
 	}
 
 }
