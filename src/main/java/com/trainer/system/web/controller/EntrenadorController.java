@@ -1,5 +1,7 @@
 package com.trainer.system.web.controller;
 
+import com.trainer.system.domain.dto.EntrenadorDto;
+import com.trainer.system.domain.service.EntrenadorService;
 import com.trainer.system.persistence.crud.CrudEntrenadorEntity;
 import com.trainer.system.persistence.entity.EntrenadorEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,14 +11,14 @@ import java.util.List;
 
 @RestController
 public class EntrenadorController {
-    private final CrudEntrenadorEntity crudEntrenadorEntity;
+    private final EntrenadorService entrenadorService;
 
-    public EntrenadorController(CrudEntrenadorEntity crudEntrenadorEntity) {
-        this.crudEntrenadorEntity = crudEntrenadorEntity;
+    public EntrenadorController(EntrenadorService entrenadorService) {
+        this.entrenadorService = entrenadorService;
     }
 
     @GetMapping("/entrenadores")
-    public List<EntrenadorEntity> getEntrenadores() {
-        return (List<EntrenadorEntity>) this.crudEntrenadorEntity.findAll();
+    public List<EntrenadorDto> getEntrenadores() {
+        return (List<EntrenadorDto>) this.entrenadorService.getEntrenadores();
     }
 }
