@@ -20,6 +20,10 @@ public class EntrenadorEntity {
     @Column()
     private boolean activo;
 
+    public Integer getId_entrenador() {
+        return id_entrenador;
+    }
+
     public String getNombre() {
         return nombre;
     }

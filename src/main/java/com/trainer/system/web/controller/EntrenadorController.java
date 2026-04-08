@@ -5,6 +5,7 @@ import com.trainer.system.domain.service.EntrenadorService;
 import com.trainer.system.persistence.crud.CrudEntrenadorEntity;
 import com.trainer.system.persistence.entity.EntrenadorEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,5 +23,10 @@ public class EntrenadorController {
     @GetMapping
     public List<EntrenadorDto> getEntrenadores() {
         return (List<EntrenadorDto>) this.entrenadorService.getEntrenadores();
+    }
+
+    @GetMapping("/{id}")
+    public EntrenadorDto getEntrenador(@PathVariable Integer id) {
+        return this.entrenadorService.getEntrenador(id);
     }
 }

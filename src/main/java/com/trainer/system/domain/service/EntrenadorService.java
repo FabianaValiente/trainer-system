@@ -17,4 +17,8 @@ public class EntrenadorService {
     public List<EntrenadorDto> getEntrenadores() {
         return entrenadorRepository.getEntrenadores();
     }
+
+    public EntrenadorDto getEntrenador(Integer id) {
+        return entrenadorRepository.getEntrenador(id);
+    }
 }

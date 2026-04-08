@@ -6,4 +6,8 @@ import java.util.List;
 
 public interface EntrenadorRepository {
     List<EntrenadorDto> getEntrenadores();
+    EntrenadorDto getEntrenador(Integer id);
+    void addEntrenador(EntrenadorDto entrenadorDto);
+    void updateEntrenador(EntrenadorDto entrenadorDto);
+    void deleteEntrenador(Integer id);
 }
