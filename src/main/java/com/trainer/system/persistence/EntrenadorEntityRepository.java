@@ -33,12 +33,12 @@ public class EntrenadorEntityRepository implements EntrenadorRepository {
 
     @Override
     public void addEntrenador(EntrenadorDto entrenadorDto) {
-
+        this.crudEntrenadorEntity.save(this.entrenadorMapper.toEntity(entrenadorDto));
     }
 
     @Override
     public void updateEntrenador(EntrenadorDto entrenadorDto) {
-
+        this.crudEntrenadorEntity
     }
 
     @Override

@@ -15,10 +15,14 @@ public class EntrenadorService {
     }
 
     public List<EntrenadorDto> getEntrenadores() {
-        return entrenadorRepository.getEntrenadores();
+        return this.entrenadorRepository.getEntrenadores();
     }
 
     public EntrenadorDto getEntrenador(Integer id) {
-        return entrenadorRepository.getEntrenador(id);
+        return this.entrenadorRepository.getEntrenador(id);
+    }
+
+    public void addEntrenador(EntrenadorDto entrenadorDto) {
+        this.entrenadorRepository.addEntrenador(entrenadorDto);
     }
 }
