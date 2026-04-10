@@ -37,12 +37,15 @@ public class EntrenadorEntityRepository implements EntrenadorRepository {
     }
 
     @Override
-    public void updateEntrenador(EntrenadorDto entrenadorDto) {
-        this.crudEntrenadorEntity
+    public void updateEntrenador(Integer id, EntrenadorDto entrenadorDto) {
+        EntrenadorEntity entrenadorEnity = this.entrenadorMapper.toEntity(entrenadorDto);
+        entrenadorEnity = this.crudEntrenadorEntity.findById(id).orElse(entrenadorEnity);
+        this.crudEntrenadorEntity.save(entrenadorEnity);
     }
 
     @Override
     public void deleteEntrenador(Integer id) {
-
+        EntrenadorEntity entrenadorEntity = this.crudEntrenadorEntity.findById(id).orElse(null);
+        this.crudEntrenadorEntity.delete(entrenadorEntity);
     }
 }

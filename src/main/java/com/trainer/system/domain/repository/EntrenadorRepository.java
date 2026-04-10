@@ -8,6 +8,6 @@ public interface EntrenadorRepository {
     List<EntrenadorDto> getEntrenadores();
     EntrenadorDto getEntrenador(Integer id);
     void addEntrenador(EntrenadorDto entrenadorDto);
-    void updateEntrenador(EntrenadorDto entrenadorDto);
+    void updateEntrenador(Integer id, EntrenadorDto entrenadorDto);
     void deleteEntrenador(Integer id);
 }

@@ -25,4 +25,13 @@ public class EntrenadorService {
     public void addEntrenador(EntrenadorDto entrenadorDto) {
         this.entrenadorRepository.addEntrenador(entrenadorDto);
     }
+
+    public void updateEntrenador(Integer id, EntrenadorDto entrenadorDto) {
+        this.entrenadorRepository.updateEntrenador(id,entrenadorDto);
+    }
+
+    public void deleteEntrenador(Integer id) {
+        this.entrenadorRepository.deleteEntrenador(id);
+    }
+
 }
