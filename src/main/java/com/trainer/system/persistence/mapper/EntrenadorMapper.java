@@ -4,6 +4,7 @@ import com.trainer.system.persistence.entity.EntrenadorEntity;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 
 import java.util.List;
 
@@ -15,4 +16,7 @@ public interface EntrenadorMapper {
 
     @InheritInverseConfiguration
     EntrenadorEntity toEntity(EntrenadorDto entrenadorDto);
+
+    @Mapping(target = "telefono", source = "celular")
+    void updateEntityFromDto(EntrenadorDto entrenadorDto, @MappingTarget EntrenadorEntity entrenadorEntity);
 }

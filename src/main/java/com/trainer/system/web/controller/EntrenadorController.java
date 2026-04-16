@@ -36,4 +36,16 @@ public class EntrenadorController {
     public void addEntrenador(@RequestBody EntrenadorDto entrenadorDto) {
         this.entrenadorService.addEntrenador(entrenadorDto);
     }
+
+    @PutMapping("/{id}")
+    public void updateEntrenador(@PathVariable Integer id , @RequestBody EntrenadorDto entrenadorDto) {
+        System.out.println("id_recibido:" + id);
+        System.out.println("entrenadorDto:" + entrenadorDto);
+        this.entrenadorService.updateEntrenador(id, entrenadorDto);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteEntrenador(@PathVariable Integer id) {
+        this.entrenadorService.deleteEntrenador(id);
+    }
 }

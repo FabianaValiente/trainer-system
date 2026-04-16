@@ -1,27 +1,28 @@
 package com.trainer.system.persistence.entity;
+
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="entrenador")
-public class EntrenadorEntity {
+@Table(name = "cliente")
+public class ClienteEntity {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Integer id_entrenador;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-    @Column(nullable=false)
+    @Column
     private String nombre;
 
-    @Column(nullable=false)
+    @Column
     private String telefono;
 
-    @Column(unique=true,nullable=false)
+    @Column
     private String correo;
 
-    @Column()
+    @Column
     private boolean activo;
 
-    public Integer getId_entrenador() {
-        return id_entrenador;
+    public Integer getId() {
+        return id;
     }
 
     public String getNombre() {
@@ -58,8 +59,8 @@ public class EntrenadorEntity {
 
     @Override
     public String toString() {
-        return "EntrenadorEntity{" +
-                "id_entrenador=" + id_entrenador +
+        return "ClienteEntity{" +
+                "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", telefono='" + telefono + '\'' +
                 ", correo='" + correo + '\'' +

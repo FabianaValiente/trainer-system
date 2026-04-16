@@ -5,6 +5,7 @@ import com.trainer.system.domain.repository.EntrenadorRepository;
 import com.trainer.system.persistence.crud.CrudEntrenadorEntity;
 import com.trainer.system.persistence.entity.EntrenadorEntity;
 import com.trainer.system.persistence.mapper.EntrenadorMapper;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collections;
@@ -38,9 +39,14 @@ public class EntrenadorEntityRepository implements EntrenadorRepository {
 
     @Override
     public void updateEntrenador(Integer id, EntrenadorDto entrenadorDto) {
-        EntrenadorEntity entrenadorEnity = this.entrenadorMapper.toEntity(entrenadorDto);
-        entrenadorEnity = this.crudEntrenadorEntity.findById(id).orElse(entrenadorEnity);
-        this.crudEntrenadorEntity.save(entrenadorEnity);
+        EntrenadorEntity entrenadorEntity = this.crudEntrenadorEntity.findById(id).orElse(null);
+        if(entrenadorEntity == null){
+            throw new EntityNotFoundException("Entrenador no encontrado");
+        }
+        System.out.printf("update entrenador:" + entrenadorDto);
+        System.out.printf("\nentrenador entity:" + entrenadorEntity);
+        this.entrenadorMapper.updateEntityFromDto(entrenadorDto,entrenadorEntity);
+        this.crudEntrenadorEntity.save(entrenadorEntity);
     }
 
     @Override
